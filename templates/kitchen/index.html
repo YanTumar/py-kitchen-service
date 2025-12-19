@@ -14,11 +14,11 @@
             <div class="card-body">
                 <h5 class="card-title text-muted">Cooks</h5>
                 <p class="display-4 fw-bold text-primary">{{ num_cooks }}</p>
-                <button class="btn btn-outline-primary btn-sm">View Details</button>
+                <a href="{% url 'kitchen:cook-list' %}" class="btn btn-outline-primary btn-sm">View Details</a>
             </div>
         </div>
     </div>
-    
+
     <div class="col-md-4">
         <div class="card h-100 border-0 shadow-sm">
             <div class="card-body">
