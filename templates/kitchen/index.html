@@ -1,4 +1,42 @@
-<h1>Kitchen Service Home</h1>
-<p>Cooks: {{ num_cooks }}</p>
-<p>Dishes: {{ num_dishes }}</p>
-<p>Dish types: {{ num_dish_types }}</p>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm border">
+    <div class="container-fluid py-5 text-center">
+        <h1 class="display-5 fw-bold">Kitchen Service Control Panel</h1>
+        <p class="col-md-8 fs-4 mx-auto text-muted">Manage your cooks, dishes, and menu categories in one place.</p>
+    </div>
+</div>
+
+<div class="row g-4 text-center">
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-muted">Cooks</h5>
+                <p class="display-4 fw-bold text-primary">{{ num_cooks }}</p>
+                <button class="btn btn-outline-primary btn-sm">View Details</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-muted">Dishes</h5>
+                <p class="display-4 fw-bold text-success">{{ num_dishes }}</p>
+                <button class="btn btn-outline-success btn-sm">View Details</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-muted">Dish Types</h5>
+                <p class="display-4 fw-bold text-warning">{{ num_dish_types }}</p>
+                <button class="btn btn-outline-warning btn-sm">View Details</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
