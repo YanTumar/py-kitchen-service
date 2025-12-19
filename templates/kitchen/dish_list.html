@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Dish List</h1>
+  <table class="table table-hover shadow-sm bg-white mt-4">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Dish Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for dish in dish_list %}
+        <tr>
+          <td>{{ dish.id }}</td>
+          <td>{{ dish.name }}</td>
+          <td>{{ dish.price }}</td>
+          <td>{{ dish.dish_type.name }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4" class="text-center">No dishes found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
