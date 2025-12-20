@@ -52,3 +52,9 @@ class DishListView(LoginRequiredMixin, generic.ListView):
         if self.request.headers.get("HX-Request"):
             return ["kitchen/dish_list_items.html"]
         return ["kitchen/dish_list.html"]
+
+
+class CookDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Cook
+    template_name = "kitchen/cook_detail.html"
+    context_object_name = "cook"

@@ -13,7 +13,9 @@
     <td>{{ dish.dish_type.name }}</td>
     <td>
       {% for cook in dish.cooks.all %}
-        {{ cook.username }}{% if not forloop.last %}, {% endif %}
+        <a href="{% url 'kitchen:cook-detail' pk=cook.id %}" class="text-decoration-none fw-bold">
+          {{ cook.username }}
+        </a>{% if not forloop.last %}, {% endif %}
       {% empty %}
         <span class="text-muted">No chef</span>
       {% endfor %}

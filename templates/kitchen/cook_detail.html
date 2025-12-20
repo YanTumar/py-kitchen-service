@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-4">
+    <div class="card shadow-sm border-0">
+      <div class="card-body">
+        <h1 class="display-5">Chef: {{ cook.first_name }} {{ cook.last_name }}</h1>
+        <p class="text-muted">Username: @{{ cook.username }}</p>
+        <hr>
+        <div class="row">
+          <div class="col-md-4">
+            <h5>Experience</h5>
+            <p class="badge bg-primary fs-6">{{ cook.years_of_experience }} years</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mt-5 mb-3">Assigned Dishes</h3>
+    <div class="list-group shadow-sm">
+      {% for dish in cook.dishes.all %}
+        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+          <div>
+            <strong>{{ dish.name }}</strong>
+            <span class="text-muted ms-2">({{ dish.dish_type.name }})</span>
+          </div>
+          <span class="badge bg-secondary">${{ dish.price }}</span>
+        </div>
+      {% empty %}
+        <p class="text-muted">This chef has no assigned dishes yet.</p>
+      {% endfor %}
+    </div>
+    
+    <div class="mt-4">
+      <a href="{% url 'kitchen:cook-list' %}" class="btn btn-outline-secondary">Back to List</a>
+    </div>
+  </div>
+{% endblock %}
