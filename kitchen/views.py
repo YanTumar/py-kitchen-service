@@ -35,6 +35,19 @@ class DishListView(LoginRequiredMixin, generic.ListView):
     context_object_name = "dish_list"
     paginate_by = 5
 
+    def get_queryset(self):
+        queryset = Dish.objects.select_related("dish_type").prefetch_related("cooks")
+        self.search_query = self.request.GET.get("search", "")
+
+        if self.search_query:
+            return queryset.filter(name__icontains=self.search_query)
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["search_query"] = self.search_query
+        return context
+
     def get_template_names(self):
         if self.request.headers.get("HX-Request"):
             return ["kitchen/dish_list_items.html"]
