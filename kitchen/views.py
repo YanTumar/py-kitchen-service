@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.views import generic
 from .models import Cook, Dish, DishType
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def index(request):
     num_cooks = Cook.objects.count()
     num_dishes = Dish.objects.count()
@@ -15,19 +18,19 @@ def index(request):
 
     return render(request, "kitchen/index.html", context=context)
 
-class DishTypeListView(generic.ListView):
+class DishTypeListView(LoginRequiredMixin, generic.ListView):
     model = DishType
     context_object_name = "dish_type_list"
     template_name = "kitchen/dish_type_list.html"
 
 
-class CookListView(generic.ListView):
+class CookListView(LoginRequiredMixin, generic.ListView):
     model = Cook
     template_name = "kitchen/cook_list.html"
     context_object_name = "cook_list"
 
 
-class DishListView(generic.ListView):
+class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
     template_name = "kitchen/dish_list.html"
     context_object_name = "dish_list"
