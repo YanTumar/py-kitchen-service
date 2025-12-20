@@ -8,7 +8,11 @@
     {% endif %}
   >
     <td>{{ dish.id }}</td>
-    <td>{{ dish.name }}</td>
+    <td>
+      <a href="{% url 'kitchen:dish-detail' pk=dish.id %}" class="text-decoration-none fw-bold text-dark">
+        {{ dish.name }}
+      </a>
+    </td>
     <td>{{ dish.price }}</td>
     <td>{{ dish.dish_type.name }}</td>
     <td>
