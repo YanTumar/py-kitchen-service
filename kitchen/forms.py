@@ -1,7 +1,21 @@
 from django import forms
 from django.contrib.auth import get_user_model
+from kitchen.models import Dish
+
 
 class CookExperienceUpdateForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
         fields = ["first_name", "last_name", "years_of_experience"]
+
+
+class DishForm(forms.ModelForm):
+    cooks = forms.ModelMultipleChoiceField(
+        queryset=get_user_model().objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False
+    )
+
+    class Meta:
+        model = Dish
+        fields = "__all__"

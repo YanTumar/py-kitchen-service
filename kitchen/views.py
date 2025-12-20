@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
 from .models import Cook, Dish, DishType
-from kitchen.forms import CookExperienceUpdateForm
+from kitchen.forms import CookExperienceUpdateForm, DishForm
 
 
 @login_required
@@ -83,4 +83,11 @@ class DishDetailView(LoginRequiredMixin, generic.DetailView):
 class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Dish
     template_name = "kitchen/dish_confirm_delete.html"
+    success_url = reverse_lazy("kitchen:dish-list")
+
+
+class DishCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Dish
+    form_class = DishForm
+    template_name = "kitchen/dish_form.html"
     success_url = reverse_lazy("kitchen:dish-list")
