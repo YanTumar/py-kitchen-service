@@ -1,8 +1,12 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
-from .models import Cook, Dish, DishType
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+
+from .models import Cook, Dish, DishType
+from kitchen.forms import CookExperienceUpdateForm
+
 
 @login_required
 def index(request):
@@ -17,6 +21,7 @@ def index(request):
     }
 
     return render(request, "kitchen/index.html", context=context)
+
 
 class DishTypeListView(LoginRequiredMixin, generic.ListView):
     model = DishType
@@ -58,3 +63,12 @@ class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
     template_name = "kitchen/cook_detail.html"
     context_object_name = "cook"
+
+
+class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Cook
+    form_class = CookExperienceUpdateForm
+    template_name = "kitchen/cook_form.html"
+
+    def get_success_url(self):
+        return reverse_lazy("kitchen:cook-detail", kwargs={"pk": self.object.id})
