@@ -24,6 +24,10 @@
 
     <div class="mt-4 d-flex gap-2">
       <a href="{% url 'kitchen:dish-list' %}" class="btn btn-outline-secondary">Back to Menu</a>
-      </div>
+
+      <a href="{% url 'kitchen:dish-delete' pk=dish.id %}" class="btn btn-danger">
+        Delete Dish
+      </a>
+    </div>
   </div>
 {% endblock %}
