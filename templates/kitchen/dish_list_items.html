@@ -1,0 +1,27 @@
+{% for dish in dish_list %}
+  <tr 
+    {% if forloop.last and page_obj.has_next %}
+      hx-get="{% url 'kitchen:dish-list' %}?page={{ page_obj.next_page_number }}"
+      hx-trigger="revealed"
+      hx-swap="afterend"
+    {% endif %}
+  >
+    <td>{{ dish.id }}</td>
+    <td>{{ dish.name }}</td>
+    <td>{{ dish.price }}</td>
+    <td>{{ dish.dish_type.name }}</td>
+    <td>
+      {% for cook in dish.cooks.all %}
+        {{ cook.username }}{% if not forloop.last %}, {% endif %}
+      {% empty %}
+        <span class="text-muted">No chef</span>
+      {% endfor %}
+    </td>
+  </tr>
+{% empty %}
+  {% if not page_obj.has_previous %}
+    <tr>
+      <td colspan="5" class="text-center">No dishes found.</td>
+    </tr>
+  {% endif %}
+{% endfor %}

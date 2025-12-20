@@ -32,5 +32,10 @@ class CookListView(LoginRequiredMixin, generic.ListView):
 
 class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
-    template_name = "kitchen/dish_list.html"
     context_object_name = "dish_list"
+    paginate_by = 5
+
+    def get_template_names(self):
+        if self.request.headers.get("HX-Request"):
+            return ["kitchen/dish_list_items.html"]
+        return ["kitchen/dish_list.html"]
