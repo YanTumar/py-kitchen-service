@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
 from .models import Cook, Dish, DishType
-from kitchen.forms import CookExperienceUpdateForm, DishForm
+from kitchen.forms import CookExperienceUpdateForm, DishForm, CookSearchForm
 
 
 @login_required
@@ -31,8 +31,27 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
 
 class CookListView(LoginRequiredMixin, generic.ListView):
     model = Cook
-    template_name = "kitchen/cook_list.html"
-    context_object_name = "cook_list"
+    paginate_by = 5
+
+    def get_template_names(self):
+        if self.request.headers.get("HX-Request"):
+            return ["kitchen/cook_list_items.html"]
+        return ["kitchen/cook_list.html"]
+
+    def get_queryset(self):
+        queryset = Cook.objects.all()
+        form = CookSearchForm(self.request.GET)
+        if form.is_valid():
+            return queryset.filter(
+                username__icontains=form.cleaned_data["username"]
+            )
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        username = self.request.GET.get("username", "")
+        context["search_form"] = CookSearchForm(initial={"username": username})
+        return context
 
 
 class DishListView(LoginRequiredMixin, generic.ListView):
