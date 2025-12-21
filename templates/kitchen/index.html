@@ -39,4 +39,13 @@
         </div>
     </div>
 </div>
+
+<div class="mt-5 p-4 bg-white rounded-3 shadow-sm border text-center">
+    <p class="mb-0 text-muted fs-5">
+        <i class="bi bi-clock-history"></i>
+        You have visited this page
+        <span class="badge bg-dark">{{ num_visits }}</span>
+        time{{ num_visits|pluralize }} in this session.
+    </p>
+</div>
 {% endblock %}
