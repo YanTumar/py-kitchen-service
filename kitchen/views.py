@@ -80,8 +80,7 @@ class DishListView(LoginRequiredMixin, generic.ListView):
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
-    template_name = "kitchen/cook_detail.html"
-    context_object_name = "cook"
+    queryset = Cook.objects.prefetch_related("dishes__dish_type")
 
 
 class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
