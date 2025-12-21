@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 from kitchen.models import DishType, Dish
 from django.urls import reverse
 from django.test import Client
+from kitchen.forms import CookExperienceUpdateForm
 
 
 class ModelTests(TestCase):
@@ -111,3 +112,27 @@ class AdminSiteTests(TestCase):
         url = reverse("admin:kitchen_cook_change", args=[self.cook.id])
         res = self.client.get(url)
         self.assertContains(res, self.cook.years_of_experience)
+
+
+class FormTests(TestCase):
+    def test_cook_experience_update_form_valid_data(self):
+        form_data = {
+            "first_name": "Test",
+            "last_name": "Chef",
+            "years_of_experience": 20,
+        }
+        form = CookExperienceUpdateForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_cook_experience_update_form_invalid_data(self):
+        form_data = {
+            "first_name": "Test",
+            "last_name": "Chef",
+            "years_of_experience": 51,
+        }
+        form = CookExperienceUpdateForm(data=form_data)
+        self.assertFalse(form.is_valid())
+        self.assertEqual(
+            form.errors["years_of_experience"],
+            ["Experience should be less than or equal to 50 years."]
+        )
