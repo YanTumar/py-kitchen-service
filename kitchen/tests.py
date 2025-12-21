@@ -1,6 +1,8 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 from kitchen.models import DishType, Dish
+from django.urls import reverse
+
 
 class ModelTests(TestCase):
     def test_cook_str(self):
@@ -44,3 +46,32 @@ class ModelTests(TestCase):
         )
         self.assertEqual(cook.years_of_experience, years_of_experience)
         self.assertTrue(cook.check_password(password))
+
+
+class PublicViewTests(TestCase):
+    def test_login_required(self):
+        urls = [
+            reverse("kitchen:index"),
+            reverse("kitchen:cook-list"),
+            reverse("kitchen:dish-list"),
+        ]
+        for url in urls:
+            res = self.client.get(url)
+            self.assertNotEqual(res.status_code, 200)
+
+
+class PrivateViewTests(TestCase):
+    def setUp(self):
+        self.user = get_user_model().objects.create_user(
+            username="test_user",
+            password="password123"
+        )
+        self.client.force_login(self.user)
+
+    def test_retrieve_index_page(self):
+        res = self.client.get(reverse("kitchen:index"))
+        self.assertEqual(res.status_code, 200)
+
+    def test_retrieve_cooks(self):
+        res = self.client.get(reverse("kitchen:cook-list"))
+        self.assertEqual(res.status_code, 200)
