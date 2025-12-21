@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.contrib.auth import get_user_model
 from kitchen.models import DishType, Dish
 from django.urls import reverse
+from django.test import Client
 
 
 class ModelTests(TestCase):
@@ -85,3 +86,28 @@ class PrivateViewTests(TestCase):
         res = self.client.get(reverse("kitchen:index"))
         self.assertContains(res, '<span class="badge bg-dark">2</span>')
         self.assertContains(res, "times in this session")
+
+
+class AdminSiteTests(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.admin_user = get_user_model().objects.create_superuser(
+            username="admin",
+            password="adminpassword123"
+        )
+        self.client.force_login(self.admin_user)
+        self.cook = get_user_model().objects.create_user(
+            username="test_cook",
+            password="password123",
+            years_of_experience=12
+        )
+
+    def test_cook_years_of_experience_listed(self):
+        url = reverse("admin:kitchen_cook_changelist")
+        res = self.client.get(url)
+        self.assertContains(res, self.cook.years_of_experience)
+
+    def test_cook_detail_experience_listed(self):
+        url = reverse("admin:kitchen_cook_change", args=[self.cook.id])
+        res = self.client.get(url)
+        self.assertContains(res, self.cook.years_of_experience)
