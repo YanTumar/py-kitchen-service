@@ -75,3 +75,13 @@ class PrivateViewTests(TestCase):
     def test_retrieve_cooks(self):
         res = self.client.get(reverse("kitchen:cook-list"))
         self.assertEqual(res.status_code, 200)
+
+    def test_visit_count_increases(self):
+        res = self.client.get(reverse("kitchen:index"))
+        self.assertEqual(res.status_code, 200)
+        self.assertContains(res, "You have visited this page")
+        self.assertContains(res, '<span class="badge bg-dark">1</span>')
+        self.assertContains(res, "time in this session")
+        res = self.client.get(reverse("kitchen:index"))
+        self.assertContains(res, '<span class="badge bg-dark">2</span>')
+        self.assertContains(res, "times in this session")
