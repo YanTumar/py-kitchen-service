@@ -36,7 +36,6 @@ class ModelTests(TestCase):
         )
         self.assertEqual(str(dish), dish.name)
 
-
     def test_create_cook_with_experience(self):
         username = "chef_luigi"
         password = "testpassword123"
