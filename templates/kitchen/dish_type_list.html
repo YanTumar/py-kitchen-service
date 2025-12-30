@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="mb-4">Dish Types</h1>
+
+    {% if dish_type_list %}
+        <div class="list-group shadow-sm">
+            {% for dish_type in dish_type_list %}
+                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    {{ dish_type.name }}
+                    <span class="badge bg-primary rounded-pill">ID: {{ dish_type.id }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>There are no dish types in the kitchen.</p>
+    {% endif %}
+{% endblock %}

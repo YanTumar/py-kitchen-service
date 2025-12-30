@@ -1,0 +1,548 @@
+[
+{
+    "model": "kitchen.cook",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$N9norpyQntpv9JzT9VnLks$a8mzEupLfPtaQgY8cOgm4TvIb7LahbGhQUWNpIFx278=",
+        "last_login": "2025-12-22T15:16:17.446Z",
+        "is_superuser": true,
+        "username": "head_chef",
+        "first_name": "Yan",
+        "last_name": "Main-Master",
+        "email": "chef@kitchen.service",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-12-18T16:00:21Z",
+        "years_of_experience": 10,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$rGNES5jMwL1zP5eSvxW3yZ$NV0OxMVE7QhXEqA6B3EgiyMiF05M2L/byoce5ad80fI=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "ivan_soup",
+        "first_name": "Ivan",
+        "last_name": "Soup-Master",
+        "email": "ivan@kitchen.service",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-20T11:05:13Z",
+        "years_of_experience": 5,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$cVlXufdgJcRi9QI169LKQm$WpHrUHLmqyi2St6JjIs12QyXxv7E3oH+pDGNx0oPbS8=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "maria_dessert",
+        "first_name": "Maria",
+        "last_name": "Dessert-Master",
+        "email": "maria@kitchen.service",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-20T11:11:07Z",
+        "years_of_experience": 4,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$csq2Wd7iigWT5bO1enJIqn$tKRMltn9td4StqidgBcWq5AzVdpeQBnoZEVcFs3s0Vc=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "luigi_pizza",
+        "first_name": "Luigi",
+        "last_name": "Rossi",
+        "email": "luigi@kitchen.service",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-21T11:20:06Z",
+        "years_of_experience": 8,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$LuYp8CyZsxG6njWGsysO48$2yij9ILK/LSSYVYpy6kU5oFyF32gyHL9UNmYAe/pexc=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "anna_green",
+        "first_name": "Anna",
+        "last_name": "Smith",
+        "email": "anna@kitchen.service",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-21T11:21:06Z",
+        "years_of_experience": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 1,
+    "fields": {
+        "name": "Soups"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 2,
+    "fields": {
+        "name": "Desserts"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 3,
+    "fields": {
+        "name": "Main Dishes"
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 1,
+    "fields": {
+        "name": "Borscht",
+        "description": "Traditional Ukrainian soup",
+        "price": "45.00",
+        "dish_type": 1,
+        "cooks": [
+            2
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 2,
+    "fields": {
+        "name": "Apple Pie",
+        "description": "Delicious apple pie with cinnamon!",
+        "price": "25.00",
+        "dish_type": 2,
+        "cooks": [
+            3
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 3,
+    "fields": {
+        "name": "Steak",
+        "description": "",
+        "price": "75.00",
+        "dish_type": 3,
+        "cooks": [
+            1
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 4,
+    "fields": {
+        "name": "Pizza",
+        "description": "A large circle of pita bread baked with cheese, tomatoes, and sometimes meat and vegetables, topped with sauces",
+        "price": "30.00",
+        "dish_type": 3,
+        "cooks": [
+            1
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 6,
+    "fields": {
+        "name": "Caesar Salad",
+        "description": "A crisp, savory green salad featuring romaine lettuce, crunchy croutons, and Parmesan cheese, tossed in a tangy, creamy dressing made from olive oil, lemon juice, raw or coddled eggs, garlic, Worcestershire sauce, and anchovies (or anchovy paste)",
+        "price": "47.50",
+        "dish_type": 3,
+        "cooks": [
+            1
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 7,
+    "fields": {
+        "name": "Creamy Mushroom Soup",
+        "description": "A rich, velvety liquid dish characterized by its deep earthy flavor and smooth texture.",
+        "price": "12.30",
+        "dish_type": 1,
+        "cooks": [
+            2
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 8,
+    "fields": {
+        "name": "Potato Leek Soup",
+        "description": "A classic, comforting dish characterized by its smooth, velvety texture and delicate, savory-sweet flavor",
+        "price": "25.75",
+        "dish_type": 1,
+        "cooks": [
+            2
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 9,
+    "fields": {
+        "name": "Broccoli Cheddar Soup",
+        "description": "A rich and creamy comfort classic known for its velvety texture and savory depth.",
+        "price": "17.45",
+        "dish_type": 1,
+        "cooks": [
+            2
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 10,
+    "fields": {
+        "name": "Gelato al pistacchio",
+        "description": "Creamy texture, intense nutty aroma, and natural coloring",
+        "price": "50.00",
+        "dish_type": 2,
+        "cooks": [
+            3
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 11,
+    "fields": {
+        "name": "Kladdkaka",
+        "description": "A popular Swedish chocolate dessert known for its rich, dense, and \"sticky\" consistency",
+        "price": "75.10",
+        "dish_type": 2,
+        "cooks": [
+            3
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 12,
+    "fields": {
+        "name": "Nutella cr├кpes",
+        "description": "A sweet, indulgent treat consisting of a thin, tender French-style pancake generously spread with the rich, creamy chocolate-hazelnut spread, Nutella.",
+        "price": "63.20",
+        "dish_type": 2,
+        "cooks": [
+            3
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 13,
+    "fields": {
+        "name": "Sate kambing",
+        "description": "A traditional Indonesian dish consisting of seasoned, skewered, and charcoal-grilled goat meat",
+        "price": "80.00",
+        "dish_type": 3,
+        "cooks": [
+            1
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 14,
+    "fields": {
+        "name": "Birria tacos (Quesabirria)",
+        "description": "A viral Mexican fusion dish, combining tender, slow-cooked birria meat (usually beef or goat) with melted cheese, stuffed in tortillas that are dipped in rich, spicy consomm├й (broth) before being pan-fried to crispy perfection, creating a cheesy, savory, and juicy taco with a signature red-stained exterior, served with extra consomm├й for dipping.",
+        "price": "37.50",
+        "dish_type": 3,
+        "cooks": [
+            1
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 15,
+    "fields": {
+        "name": "Arroz tapado",
+        "description": "A traditional Peruvian comfort dish characterized by its distinctive layered presentation.",
+        "price": "69.99",
+        "dish_type": 3,
+        "cooks": [
+            1
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 16,
+    "fields": {
+        "name": "Central Texas-Style Barbecue",
+        "description": "All about the meat, especially beef brisket, slow-smoked over oak or pecan wood with a simple rub of salt and black pepper, focusing on pure smoky flavor rather than heavy sauces, served traditionally on butcher paper with pickles and onions.",
+        "price": "80.20",
+        "dish_type": 3,
+        "cooks": [
+            1
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 17,
+    "fields": {
+        "name": "Bambalouni",
+        "description": "A popular, sweet Tunisian doughnut made from a simple yeast dough, deep-fried until golden and crispy on the outside, yet soft and fluffy within, then typically coated in sugar or drizzled with honey.",
+        "price": "52.30",
+        "dish_type": 2,
+        "cooks": [
+            3
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 18,
+    "fields": {
+        "name": "Dondurma",
+        "description": "A unique, taffy-like ice cream originating from the Kahramanmara┼Я region of Turkey.",
+        "price": "100.00",
+        "dish_type": 2,
+        "cooks": [
+            3
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 19,
+    "fields": {
+        "name": "Easy Vegetarian Chili",
+        "description": "A hearty, one-pot meal that substitutes meat with a protein-rich blend of beans and nutrient-dense vegetables.",
+        "price": "71.75",
+        "dish_type": 1,
+        "cooks": [
+            2
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 20,
+    "fields": {
+        "name": "Kun─Бfah",
+        "description": "A popular Middle Eastern dessert featuring shredded phyllo dough (kataifi) or fine semolina, layered with a sweet cheese or clotted cream filling, baked until golden and crispy, then drenched in a fragrant, sweet syrup (attar) and typically garnished with pistachios, offering a rich, buttery, sweet, and tangy flavor profile.",
+        "price": "95.50",
+        "dish_type": 2,
+        "cooks": [
+            3
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 21,
+    "fields": {
+        "name": "Corn Chowder",
+        "description": "A rich, thick, and hearty cream-based soup that uses corn as its primary ingredient.",
+        "price": "40.15",
+        "dish_type": 1,
+        "cooks": [
+            2
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 22,
+    "fields": {
+        "name": "White Bean Soup",
+        "description": "A hearty and comforting dish known for its rich, velvety texture and mild, nutty flavor.",
+        "price": "37.30",
+        "dish_type": 1,
+        "cooks": [
+            2
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 23,
+    "fields": {
+        "name": "Creamy Potato Soup",
+        "description": "Thick, velvety comfort food often described as a \"loaded baked potato in soup form\".",
+        "price": "25.00",
+        "dish_type": 1,
+        "cooks": [
+            2
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 24,
+    "fields": {
+        "name": "Basque cheesecake",
+        "description": "A rustic, crustless cheesecake characterized by its deeply scorched, caramelized top and a smooth, custardy interior.",
+        "price": "78.90",
+        "dish_type": 2,
+        "cooks": [
+            3
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 25,
+    "fields": {
+        "name": "Frozen custard",
+        "description": "Cold dessert similar to ice cream but distinguished by its egg yolk content, higher density, and warmer serving temperature.",
+        "price": "49.73",
+        "dish_type": 2,
+        "cooks": [
+            3
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 26,
+    "fields": {
+        "name": "Black Bean Soup",
+        "description": "A hearty, nutrient-dense Latin American staple known for its rich, earthy flavor and \"meaty\" texture.",
+        "price": "76.00",
+        "dish_type": 1,
+        "cooks": [
+            2
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 27,
+    "fields": {
+        "name": "Picanha",
+        "description": "A prized cut of beef from the top of the rump (sirloin cap) that is the centerpiece of Brazilian barbecue culture.",
+        "price": "120.00",
+        "dish_type": 3,
+        "cooks": [
+            1
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 28,
+    "fields": {
+        "name": "Yellow Split Pea Soup",
+        "description": "A hearty, protein-rich dish known for its golden color and earthy flavor.",
+        "price": "37.90",
+        "dish_type": 1,
+        "cooks": [
+            2
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 29,
+    "fields": {
+        "name": "Turr├│n de Do├▒a Pepa",
+        "description": "A famous, festive Peruvian dessert featuring layers of anise-flavored, cookie-like logs bound with a rich, fruit-infused brown sugar syrup (chancaca) and generously topped with colorful sprinkles and candies.",
+        "price": "93.00",
+        "dish_type": 2,
+        "cooks": [
+            3
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 30,
+    "fields": {
+        "name": "Beyti kebab",
+        "description": "A traditional Turkish dish consisting of seasoned ground meatтАФtypically lamb, beef, or a combinationтАФthat is grilled on a skewer, wrapped in thin lavash or yufka flatbread, and sliced into bite-sized rolls.",
+        "price": "87.00",
+        "dish_type": 3,
+        "cooks": [
+            1
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 31,
+    "fields": {
+        "name": "Pasta",
+        "description": "A staple food of Italian origin made from an unleavened dough of durum wheat semolina, water, and sometimes eggs.",
+        "price": "12.30",
+        "dish_type": 3,
+        "cooks": [
+            1
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 32,
+    "fields": {
+        "name": "Margherita Pizza",
+        "description": "Margherita pizza is a classic Neapolitan pizza defined by its simplicity and use of fresh ingredients that mirror the colors of the Italian flag.",
+        "price": "120.70",
+        "dish_type": 3,
+        "cooks": [
+            4
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 33,
+    "fields": {
+        "name": "Greek Salad",
+        "description": "Greek salad, traditionally known as Horiatiki (village salad), is a staple of Mediterranean cuisine celebrated for its refreshing simplicity.",
+        "price": "39.90",
+        "dish_type": 3,
+        "cooks": [
+            5
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 34,
+    "fields": {
+        "name": "Meat Platter",
+        "description": "A curated assortment of cooked or cured meats, often served as an appetizer or communal meal on a large tray or board.",
+        "price": "200.00",
+        "dish_type": 3,
+        "cooks": [
+            1,
+            4
+        ]
+    }
+}
+]

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-4">
+    <div class="card shadow-sm border-0">
+      <div class="card-body">
+        <h1 class="display-5">{{ dish.name }}</h1>
+        <p class="text-muted">Type: <span class="badge bg-info text-dark">{{ dish.dish_type.name }}</span></p>
+        <h2 class="text-primary">${{ dish.price }}</h2>
+        <hr>
+        
+        <h5>Cooks responsible for this dish:</h5>
+        <div class="d-flex flex-wrap gap-2 mt-2">
+          {% for cook in dish.cooks.all %}
+            <a href="{% url 'kitchen:cook-detail' pk=cook.id %}" class="btn btn-outline-primary btn-sm">
+              @{{ cook.username }} ({{ cook.first_name }})
+            </a>
+          {% empty %}
+            <p class="text-muted">No chefs assigned yet.</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4 d-flex gap-2">
+      <a href="{% url 'kitchen:dish-list' %}" class="btn btn-outline-secondary">
+        Back to Menu
+      </a>
+
+      <a href="{% url 'kitchen:dish-update' pk=dish.id %}" class="btn btn-warning">
+        Edit Dish
+      </a>
+
+      <a href="{% url 'kitchen:dish-delete' pk=dish.id %}" class="btn btn-danger">
+        Delete Dish
+      </a>
+    </div>
+  </div>
+{% endblock %}

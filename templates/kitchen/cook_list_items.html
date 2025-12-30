@@ -1,0 +1,17 @@
+{% for cook in cook_list %}
+  <tr>
+    <td>{{ page_obj.start_index|add:forloop.counter0 }}</td>
+    <td>
+      <a href="{% url 'kitchen:cook-detail' pk=cook.id %}" class="fw-bold text-decoration-none text-dark">
+        {{ cook.username }}
+      </a>
+      {% if cook == user %}<span class="badge bg-primary ms-1">Me</span>{% endif %}
+    </td>
+    <td>{{ cook.first_name }} {{ cook.last_name }}</td>
+    <td>{{ cook.years_of_experience }} years</td>
+  </tr>
+{% empty %}
+  <tr>
+    <td colspan="4" class="text-center text-muted">No cooks found.</td>
+  </tr>
+{% endfor %}

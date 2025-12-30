@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-4">
+    <div class="card border-danger shadow-sm">
+      <div class="card-body text-center">
+        <h1 class="text-danger">Delete Dish</h1>
+        <p class="lead">Are you sure you want to delete the dish: <strong>{{ dish.name }}</strong>?</p>
+        
+        <form action="" method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger px-4">Yes, delete it</button>
+          <a href="{% url 'kitchen:dish-detail' pk=dish.id %}" class="btn btn-secondary px-4">No, take me back</a>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

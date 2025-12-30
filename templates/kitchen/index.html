@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm border">
+    <div class="container-fluid py-5 text-center">
+        <h1 class="display-5 fw-bold">Kitchen Service Control Panel</h1>
+        <p class="col-md-8 fs-4 mx-auto text-muted">Manage your cooks, dishes, and menu categories in one place.</p>
+    </div>
+</div>
+
+<div class="row g-4 text-center">
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-muted">Cooks</h5>
+                <p class="display-4 fw-bold text-primary">{{ num_cooks }}</p>
+                <a href="{% url 'kitchen:cook-list' %}" class="btn btn-outline-primary btn-sm">View Details</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-muted">Dishes</h5>
+                <p class="display-4 fw-bold text-success">{{ num_dishes }}</p>
+                <a href="{% url 'kitchen:dish-list' %}" class="btn btn-outline-success btn-sm">View Details</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-muted">Dish Types</h5>
+                <p class="display-4 fw-bold text-warning">{{ num_dish_types }}</p>
+                <a href="{% url 'kitchen:dish-type-list' %}" class="btn btn-outline-warning btn-sm">View Details</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-5 p-4 bg-white rounded-3 shadow-sm border text-center">
+    <p class="mb-0 text-muted fs-5">
+        <i class="bi bi-clock-history"></i>
+        You have visited this page
+        <span class="badge bg-dark">{{ num_visits }}</span>
+        time{{ num_visits|pluralize }} in this session.
+    </p>
+</div>
+{% endblock %}
